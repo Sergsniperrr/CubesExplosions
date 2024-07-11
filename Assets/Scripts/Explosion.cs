@@ -11,6 +11,6 @@ public class Explosion
         float radius = 10f;
 
         foreach (Cube cube in cubes)
-            cube.GetRigitBody.AddExplosionForce(force, explosionCenter, radius);
+            cube.RigitBody.AddExplosionForce(force, explosionCenter, radius);
     }
 }

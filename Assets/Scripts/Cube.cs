@@ -7,10 +7,10 @@ public class Cube : MonoBehaviour
     [SerializeField] private Spawn _spawn;
     [SerializeField] private float _separationChance;
 
-    private Explosion explosion = new Explosion();
+    private Explosion _explosion = new Explosion();
     private Renderer _renderer;
 
-    public Rigidbody GetRigitBody => GetComponent<Rigidbody>();
+    public Rigidbody RigitBody => GetComponent<Rigidbody>();
 
     private void Start()
     {
@@ -20,13 +20,13 @@ public class Cube : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (CheckSeparationPossibility())
-            explosion.PushCubes(_spawn.CloneCubes(_cubePrefab), transform.position);
+        if (CanSeparation())
+            _explosion.PushCubes(_spawn.CloneCubes(_cubePrefab), transform.position);
 
         Destroy(gameObject);
     }
 
-    private bool CheckSeparationPossibility()
+    private bool CanSeparation()
     {
         float maxChance = 100f;
         float initialChance = maxChance;

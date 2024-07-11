@@ -10,13 +10,13 @@ public class Spawn : MonoBehaviour
         int numberOfCubes = Random.Range(_minNumberOfCubes, _maxNumberOfCubes);
         float radius = sampleCube.transform.localScale.x;
         Cube[] cubes = new Cube[numberOfCubes];
-        int halfDivider = 2;
+        int doubler = 2;
 
         ReduceSize(sampleCube);
 
         for (int i = 0; i < numberOfCubes; i++)
         {
-            float angle = i * Mathf.PI * halfDivider / numberOfCubes;
+            float angle = i * Mathf.PI * doubler / numberOfCubes;
             float x = Mathf.Cos(angle) * radius;
             float z = Mathf.Sin(angle) * radius;
             Vector3 position = sampleCube.transform.position + new Vector3(x, 0, z);
